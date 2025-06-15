@@ -50,7 +50,7 @@ def create_caption(text):
 
         counter += 1
 
-    print(lines)
+    # print(lines)
 
 
     img = Image.new("RGBA", (widest_line + 50, height*len(lines)), (0, 0, 0, 0)) # base for caption
@@ -104,10 +104,10 @@ def composite(video, text, length, output):
     # landscape or portrait (based on resolution)
     if w >= 1.09375 * h or w == h:
         bottom_resize = bottom_clip.resized(height = 630)
-        print("using landscape mode")
+        # print("using landscape mode")
     else:
         bottom_resize = bottom_clip.resized(width = 576)
-        print("using portrait mode")
+        # print("using portrait mode")
 
     (w,h) = bottom_resize.size
     bottom_resize = bottom_resize.cropped(width = 576, height = 630, x_center = w/2, y_center = h/2)
