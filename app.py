@@ -52,7 +52,6 @@ def create_caption(text):
 
     # print(lines)
 
-
     img = Image.new("RGBA", (widest_line + 50, height*len(lines)), (0, 0, 0, 0)) # base for caption
     draw = ImageDraw.Draw(img)
 
