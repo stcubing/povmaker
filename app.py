@@ -101,11 +101,13 @@ def composite(video, text, length, output):
     # resize vid
     (w,h) = bottom_clip.size
 
-    # landscape
-    if w > h:
+    # landscape or portrait (based on resolution)
+    if w >= 1.09375 * h or w == h:
         bottom_resize = bottom_clip.resized(height = 630)
+        print("using landscape mode")
     else:
         bottom_resize = bottom_clip.resized(width = 576)
+        print("using portrait mode")
 
     (w,h) = bottom_resize.size
     bottom_resize = bottom_resize.cropped(width = 576, height = 630, x_center = w/2, y_center = h/2)
@@ -122,7 +124,7 @@ def composite(video, text, length, output):
     final.write_videofile(output + ".mp4")
 
 
-# composite("test", "klja sdhsal kdj hsalkja sh sakljdhd liu HFLI:UAEH FIUhf asiuh", 1, "skibidi")
+# composite("B:/videos/the funny/hamster", "klja sdhsal", 1, "skibidi")
 
 file = input("bottom video file name: ")
 text = input("caption text: ")
